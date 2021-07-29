@@ -1,0 +1,22 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Course Code</th>
+            <th> Qualified Tutor </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Fall2020AppGroup12.Models.TutorCourseModel.TutorCourse eachTutorCourse in Model.TutorCourses)
+        {
+            <tr>
+                <td>@eachTutorCourse.Course.CourseCode</td>
+                <td>@eachTutorCourse.QualifiedTutor.FullName</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

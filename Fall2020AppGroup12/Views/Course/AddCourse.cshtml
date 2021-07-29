@@ -1,0 +1,25 @@
+﻿@model Course
+
+@{
+
+    ViewData["Title"] = "Add Course";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="AddCourse" asp-controller="Course">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="form-group">
+        <label>Course Code</label>
+        <input asp-for="CourseCode" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Course Description</label>
+        <input asp-for="CourseDescription" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Course</button>
+</form>

@@ -1,0 +1,50 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Discussion Title</th>
+            <th>Discussion Descrption</th>
+            <th> Date Created</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @try
+        {
+            @foreach (Discussion eachDiscussion in Model.Discussions)
+            {
+                <tr>
+                    <td>@eachDiscussion.DiscussionTitle</td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-controller="Discussion" asp-action="EditDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" asp-controller="Discussion" asp-action="ConfirmDeleteDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        catch
+        {
+            @foreach (Discussion eachDiscussion in Model)
+            {
+                <tr>
+                    <td>@eachDiscussion.DiscussionTitle</td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-controller="Discussion" asp-action="EditDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" asp-controller="Discussion" asp-action="ConfirmDeleteDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,25 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Major Name </th>
+            <th>Acronym</th>
+            <th>Department</th>
+            <th>Students in Major</th>
+            <th>Tutors in Major</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Fall2020AppGroup12.Models.MajorModel.Major major in Model.Majors)
+        {
+            <tr>
+                <td>@major.MajorName</td>
+                <td>@major.MajorAckronym</td>
+                <td>@major.Department.DepartmentName</td>
+                <td>@major.MajorAckronym</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

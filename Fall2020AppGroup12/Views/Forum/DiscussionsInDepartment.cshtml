@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Discussion>
+
+
+@if (Model.Any())
+{
+    {
+        ViewData["Title"] = $"Discussions in {Model.First().RequestForCourse.RequestForDepartment.DepartmentName}";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+
+            <tr>
+                <th>Discussion Title</th>
+                <th>Discussion Descrption</th>
+                <th> Date Created</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Discussion eachDiscussion in Model)
+            {
+                <tr>
+                    <td>@eachDiscussion.DiscussionTitle</td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-controller="Forum" asp-action="AccessDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Access Discussion</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+
+    <h3>There are no discussions in this Department.</h3>
+
+    <h4>
+        <a class="btn-link" asp-controller="Discussion" asp-action="AddDiscussion">Add a discussion</a>
+    </h4>
+
+
+}

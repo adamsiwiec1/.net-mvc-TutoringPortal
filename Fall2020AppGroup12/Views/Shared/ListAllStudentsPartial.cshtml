@@ -1,0 +1,43 @@
+﻿
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Major</th>
+                <th>Graduation Date</th>
+            </tr>
+        </thead>
+
+        @try
+        {
+            @foreach (Fall2020AppGroup12.Models.StudentModel.Student eachStudent in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@eachStudent.FullName</td>
+                        <td>@eachStudent.Email</td>
+                        <td>@eachStudent.Major.MajorName</td>
+                        <td>@eachStudent.StudentGraduationDate</td>
+                    </tr>
+                </tbody>
+            }
+        }
+        catch
+        {
+            @foreach (Fall2020AppGroup12.Models.StudentModel.Student eachStudent in Model.Students)
+            {
+                <tbody>
+                    <tr>
+                        <td>@eachStudent.FullName</td>
+                        <td>@eachStudent.Email</td>
+                        <td>@eachStudent.Major.MajorName</td>
+                        <td>@eachStudent.StudentGraduationDate</td>
+                    </tr>
+                </tbody>
+            }
+        }
+
+    </table>
+</div>

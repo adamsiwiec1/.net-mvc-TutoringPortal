@@ -1,0 +1,46 @@
+﻿
+<div>
+    <table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>Tutor Name</th>
+                <th>Email</th>
+                <th>Major</th>
+                <th>Graduation Date</th>
+            </tr>
+        </thead>
+
+
+        @try
+        {
+            @foreach (Fall2020AppGroup12.Models.TutorModel.Tutor eachTutor in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@eachTutor.FullName</td>
+                        <td>@eachTutor.Email</td>
+                        <td>@eachTutor.Major.MajorName</td>
+                        <td>@eachTutor.TutorGraduationDate</td>
+                    </tr>
+                </tbody>
+            }
+        }
+        catch
+        {
+            @foreach (Fall2020AppGroup12.Models.TutorModel.Tutor eachTutor in Model.Tutors)
+            {
+                <tbody>
+                    <tr>
+                        <td>@eachTutor.FullName</td>
+                        <td>@eachTutor.Email</td>
+                        <td>@eachTutor.Major.MajorName</td>
+                        <td>@eachTutor.TutorGraduationDate</td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+
+    </table>
+</div>

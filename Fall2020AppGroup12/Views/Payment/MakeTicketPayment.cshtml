@@ -1,0 +1,152 @@
+﻿@model PaymentViewModel
+@*
+        @{
+            ViewData["Title"] = "MakeTicketPayment";
+        }
+
+        <script type="text/javascript" src="~/js/sq-payment-form.js"></script>
+        <h1 style="font-weight: bold">Ticket Payment</h1>
+
+        <h6>Hello, @Model.User.FullName . You are making a ticket payment for @Model.Ticket.TicketName . </h6>
+
+        <br />
+
+
+        @if (Model.Ticket.TicketCost != null)
+        {
+            <div>
+                <h5>Your total is @Model.Ticket.TicketCost . Please enter your card number below.</h5>
+            </div>
+
+            <br />
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        @if (Model.Ticket.TicketPaid != null && true)
+        {
+            <h5>This ticket has been paid!</h5>
+        }
+        @if (Model.Ticket.TicketPaid == null && Model.Ticket.TicketCost == null)
+        {
+            <h5>This ticket does not require payment.</h5>
+        }
+
+
+    <partial name="SquarePaymentPartial" />
+*@
+
+
+
+
+
+<!-- VIEW START HERE - partial view would not load javascript :( -->
+
+
+
+
+
+
+
+
+@section Scripts {
+    @*link to the SqPaymentForm library*@
+    <script type="text/javascript" src="@Model.Square.PaymentFormUrl"></script>
+    <script type="text/javascript">
+    window.applicationId = "@Model.Square.ApplicationId";
+    window.locationId = "@Model.Square.LocationId";
+    </script>
+    @*link to the local SqPaymentForm initialization*@
+    <script type="text/javascript" src="~/js/sq-payment-form.js"></script>
+}
+
+<link rel="stylesheet" href="/css/sq-payment-form.css" />
+@*Begin Payment Form*@
+
+@if (Model.Ticket.TicketCost != null) @*&& Model.Ticket.TicketPaid == false)*@
+{
+    <h6>Hello, @Model.User.FullName . You are making a ticket payment for @Model.Ticket.TicketName . </h6>
+
+    <div>
+        <h5 class="alert-warning">Your total is @Model.Ticket.TicketCost . Please enter your card number below.</h5>
+    </div>
+
+    <br />
+
+    <div class="sq-payment-form">
+
+        @*Square's JS will automatically hide these buttons if they are unsupported
+            by the current device.*@
+
+        <div id="sq-walletbox">
+            <button id="sq-google-pay" class="button-google-pay"></button>
+            <button id="sq-apple-pay" class="sq-apple-pay"></button>
+            <button id="sq-masterpass" class="sq-masterpass"></button>
+            <div class="sq-wallet-divider">
+                <span class="sq-wallet-divider__text">Or</span>
+            </div>
+        </div>
+        <div id="sq-ccbox">
+
+            @*You should replace the action attribute of the form with the path of
+                    the URL you want to POST the nonce to (for example, "/process-card").
+                    You need to then make a "Charge" request to Square's transaction API with
+                    this nonce to securely charge the customer.
+                    Learn more about how to setup the server component of the payment form here:
+                https://docs.connect.squareup.com/payments/transactions/processing-payment-rest*@
+
+
+
+            <form id="nonce-form" asp-action="ProcessPayment" asp-route-ticketID="@Model.Ticket.TicketID" method="post">
+                <div class="sq-field">
+                    <label class="sq-label">Card Number</label>
+                    <div id="sq-card-number"></div>
+                </div>
+                <div class="sq-field-wrapper">
+                    <div class="sq-field sq-field--in-wrapper">
+                        <label class="sq-label">CVV</label>
+                        <div id="sq-cvv"></div>
+                    </div>
+                    <div class="sq-field sq-field--in-wrapper">
+                        <label class="sq-label">Expiration</label>
+                        <div id="sq-expiration-date"></div>
+                    </div>
+                    <div class="sq-field sq-field--in-wrapper">
+                        <label class="sq-label">Postal</label>
+                        <div id="sq-postal-code"></div>
+                    </div>
+                </div>
+                <div class="sq-field">
+                    <button id="sq-creditcard" class="sq-button" onclick="onGetCardNonce(event)">
+                        Pay $1.00 Now
+                    </button>
+                </div>
+
+                @*After a nonce is generated it will be assigned to this hidden input field.*@
+
+                <div id="error"></div>
+                <input type="hidden" id="card-nonce" name="nonce">
+            </form>
+        </div>
+    </div>
+}
+
+
+
+@*@if (Model.Ticket.TicketPaid != null && true) ** Need to fix bool here for MyTickets under Student **
+{
+<h5>This ticket has been paid! Ticket: @Model.Ticket.TicketName </h5>
+}
+@if (Model.Ticket.TicketPaid == null && Model.Ticket.TicketCost == null)
+{
+<h5>This ticket does not require payment. Ticket: @Model.Ticket.TicketName </h5>
+}*@

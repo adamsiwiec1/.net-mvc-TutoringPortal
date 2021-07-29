@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Major>
+
+@{
+    ViewData["Title"] = "ListAllMajors";
+}
+
+<h1>ListAllMajors</h1>
+
+<div>
+    <table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>Major Name </th>
+                <th>Acronym</th>
+                <th>Department</th>
+                <th>Students in Major</th>
+                <th>Tutors in Major</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (Major eachMajor in Model)
+            {
+                <tr>
+                    <td>@eachMajor.MajorName</td>
+                    <td>@eachMajor.MajorAckronym</td>
+                    <td>@eachMajor.Department.DepartmentName</td>
+                    <td>@eachMajor.TutorsInMajor.Count</td>
+                    <td>@eachMajor.StudentsInMajor.Count</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-controller="Major" asp-action="EditMajor" asp-route-responseID="@eachMajor.MajorID">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" asp-controller="Major" asp-action="ConfirmDeleteMajor" asp-route-responseID="@eachMajor.MajorID">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,67 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+@{
+    ViewData["Title"] = "Add a Ticket";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="AddTicket" asp-controller="Ticket" method="post">
+
+
+    <div class="form-group">
+        <label>Ticket Name</label>
+        <input asp-for="TicketName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Course Code</label>
+        <select asp-for="CourseCode" asp-items="ViewBag.AllCourses" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Subdivision</label>
+        <input asp-for="Subdivision" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Student Name</label>
+        <select asp-for="StudentId" asp-items="ViewBag.AllStudents" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Student Name</label>
+        <select asp-for="TutorId" asp-items="ViewBag.AllTutors" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Status</label>
+        <select asp-for="TicketStatus" class="form-control">
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Closed">Closed</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Date of Ticket Creation</label>
+        <input asp-for="DateCreated" class="form-control" />
+    </div>
+
+    <input asp-for="Closed" value="False" type="hidden" />
+
+    <button type="submit" class="btn btn-primary">Add Ticket</button>
+
+</form>

@@ -1,0 +1,26 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Are you sure you want to delete this department?";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="DeleteDepartment" asp-controller="Department">
+
+    <h2>@ViewData["Title"]</h2>
+
+    @Html.HiddenFor(m => m.DepartmentID)
+
+    <div class="form-group">
+        <label>Department Name</label>
+        <input asp-for="DepartmentName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Department Description</label>
+        <input asp-for="DepartmentDescription" class="form-control" readonly />
+    </div>
+    <br />
+    Click 'Delete Course' if you are sure.
+    <button type="submit" class="btn btn-primary">Delete Department</button>
+</form>

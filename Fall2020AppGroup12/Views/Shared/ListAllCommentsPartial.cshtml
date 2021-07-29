@@ -1,0 +1,23 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Comment ID</th>
+            <th>Comment Body</th>
+            <th>Response ID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Comment eachComment in Model.Comments)
+        {
+
+            <tr>
+                <td>@eachComment.CommentID</td>
+                <td>@eachComment.Body</td>
+                <td>@eachComment.ResponseID</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

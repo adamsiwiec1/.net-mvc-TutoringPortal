@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : false,
+    "application"    : "Fall2020AppGroup12",
+    "environment"    : "WVU-Tutoring-Portal",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-06b70f01\";\"aws:ec2:vpc,Subnets\"=\"subnet-b7bc3386\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.2.0 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "wvu-tutoring-portal",
+    "instance-type"        : "t2.micro",
+    "key-pair"             : "tutoring-portal-key",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}

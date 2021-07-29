@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+
+<ul class="navbar-nav mr-auto">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a  class="nav-link" asp-controller="AspNetUser" asp-action="MyProfile" asp-route-userId="@user.Id">Hello @User.Identity.Name!</a>
+    </li>
+    <li class="nav-item">
+        <form id="formLogout" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button class="btn btn-link text-light" type="submit" asp-area="Identity" asp-page="/Account/Logout">Logout</button>
+            <!--<a class="nav-link" onclick="document.getElementById('formLogout').submit();" asp-area="Identity" asp-page="/Account/Logout">Logout</a>-->  <!--Need to add JS to make Anchor function as a Button here-->
+            @*<input class="nav-link" type="submit" asp-area="Identity" asp-page="/Account/Logout" type="submit" value="Logout" />*@
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}
+</ul>

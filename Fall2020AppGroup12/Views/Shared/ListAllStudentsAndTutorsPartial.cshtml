@@ -1,0 +1,32 @@
+﻿
+<h1>All Tutors</h1>
+<div>
+    <table class="table table-bordered table-striped">
+        @foreach (Fall2020AppGroup12.Models.TutorModel.Tutor eachTutor in Model.Tutors)
+        {
+            <tr>
+                <td>@eachTutor.FullName</td>
+                <td>@eachTutor.Email</td>
+                <td>@eachTutor.Major.MajorName</td>
+                <td>@eachTutor.TutorGraduationDate</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+
+<h1>All Students</h1>
+<div>
+    <table class="table table-bordered table-striped">
+        @foreach (Fall2020AppGroup12.Models.StudentModel.Student eachStudent in Model.Students)
+        {
+            <tr>
+                <td>@eachStudent.FullName</td>
+                <td>@eachStudent.Email</td>
+                <td>@eachStudent.Major.MajorName</td>
+                <td>@eachStudent.StudentGraduationDate</td>
+            </tr>
+        }
+    </table>
+</div>

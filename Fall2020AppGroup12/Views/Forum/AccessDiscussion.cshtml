@@ -1,0 +1,132 @@
+﻿@model Fall2020AppGroup12.Models.ViewModelsMain.AccessDiscussionViewModel
+
+@{
+    ViewData["Title"] = Model.Discussion.DiscussionTitle;
+}
+
+
+<script type="text/javascript">
+
+    function fnToggleAddResponse() {
+        var x = document.getElementById("addResponse");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function fnGetRouteValues() {
+        var rTitle = document.getElementById("newTitle").select();
+        var rBody = document.getElementById("txtAreaResponse").select();
+    }
+
+</script>
+
+
+<h1 style="font-weight: bold;">@ViewData["Title"]</h1>
+<br />
+
+<div style="border:groove;">
+    <div style="margin-left: 20px; margin-top: 10px; margin-right: 20px;">
+        <p style="font:large;">@Model.Discussion.DiscussionDescription</p>
+        <p style="font:small-caption;">Posted by: @Model.Discussion.ApplicationUser.FullName<br />@Model.Discussion.DiscussionDateCreated</p>
+    </div>
+</div>
+
+<hr class="my-lg-0">
+
+<div>
+
+    @if (Model.Discussion.ResponsesInDiscussion != null)
+    {
+        @foreach (Response response in Model.Discussion.ResponsesInDiscussion)
+        {
+            @if (response.Body != null)
+            {
+                <br />
+                <div style="font:small-caption bolder;">@response.ApplicationUser.FullName | @response.DateTime</div>
+                <hr class="my-sm-1">
+                <div style="font:medium;">@response.Body</div>
+
+                @* <div class="tab">
+                              <br />
+                            @foreach (Comment comment in response.CommentsInResponse)
+                              {
+                                  <div style="text-indent: 50px">
+                                      <!--Comment-->
+                                      <p>@comment.Body</p>
+                                      <!--Empty Text Field-->
+                                      <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 54px;"></textarea>
+                                      <!--Button (need to add method that adds comment and reloads page)-->
+                                      <button>add comment</button>
+                                  </div>
+
+                              }
+                    </div>*@
+            }
+        }
+
+        <br />
+
+        <!--Add A Response-->
+
+        @*@{
+            Response responseNew = new Response();
+         }*@
+        <button class="btn" onclick="fnToggleAddResponse()">Add a Response</button>
+        <div id="addResponse" style="display:none;">
+            <br />
+            <form asp-action="UserAddResponse" asp-controller="Forum" method="post">
+
+                @*@Html.HiddenFor(m => m.Response.ResponseID)*@
+
+                <div>
+                    <p>Title: <br /> <input asp-for="Response.Title" class="form-control"/></p>
+                </div>
+                <br />
+                <div>
+                    <p>Enter your response and click post: <br /> <textarea asp-for="Response.Body" class="form-control"></textarea></p>
+                </div>
+
+                <div>
+                    <input style="display: none" asp-for="Discussion.DiscussionID" value="@Model.Discussion.DiscussionID" class="form-control"/>
+                </div>
+
+
+                @*Html.HiddenFor(m => m.Response.DiscussionID == m.Discussion.DiscussionID)*@
+
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+
+    }
+    else
+    {
+        <p>No Responses in Discussion.</p>
+    }
+
+    <div>
+
+
+    </div>
+</div>
+<!-- ADD COMMENT WITH BUTTON -->
+@*<div>
+
+        <div class="top-bar">
+            <h1>
+                Forum Access
+            </h1>
+        </div>
+        <div class="main">
+            <div class="header">
+            </div>
+            <textarea></textarea>
+            <button>add comment</button>
+            <div class="comments">
+            </div>
+        </div>
+
+
+    </div>*@

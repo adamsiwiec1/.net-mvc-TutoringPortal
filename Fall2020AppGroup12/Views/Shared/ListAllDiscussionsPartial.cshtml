@@ -1,0 +1,38 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Discussion Title</th>
+            <th>Discussion Descrption</th>
+            <th> Date Created</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @try
+        {
+            @foreach (Discussion eachDiscussion in Model.Discussions)
+            {
+                <tr>
+                    <td>@eachDiscussion.DiscussionTitle</td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                </tr>
+            }
+        }
+        catch
+        {
+            @foreach (Discussion eachDiscussion in Model)
+            {
+                <tr>
+                    <td>@eachDiscussion.DiscussionTitle</td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>

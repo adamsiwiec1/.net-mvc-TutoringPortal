@@ -1,0 +1,92 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+@{
+    ViewData["Title"] = "Edit Ticket";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="EditTicket" asp-controller="Ticket" method="post">
+
+    @Html.HiddenFor(m => m.TicketID)
+
+    <div class="form-group">
+        <label>Enter a Ticket Name:</label>
+        <input asp-for="TicketName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Course Code</label>
+        <select asp-for="CourseCode" asp-items="ViewBag.AllCourses" class="form-control">
+            <option value="@Model.CourseCode"> @Model.CourseCode</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Subdivision</label>
+        <input asp-for="Subdivision" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Choose a Student</label>
+        <select asp-for="StudentId" asp-items="ViewBag.AllStudents" class="form-control">
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Choose a Tutor</label>
+        <select asp-for="TutorId" asp-items="ViewBag.AllTutors" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Enter a Ticket Status:</label>
+        <select asp-for="TicketStatus" class="form-control">
+            <option value="">None</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Closed">Closed</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Date of Ticket Creation</label>
+        <input asp-for="DateCreated" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Cost</label>
+        <input asp-for="TicketCost" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Paid? </label>
+        <select asp-for="Closed" class="form-control">
+            <option value="False">No</option>
+            <option value="True">Yes</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Closed? </label>
+        <select asp-for="Closed" class="form-control">
+            <option value="False">No</option>
+            <option value="True">Yes</option>
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Edit Ticket</button>
+
+</form>

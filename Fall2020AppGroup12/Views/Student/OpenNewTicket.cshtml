@@ -1,0 +1,42 @@
+﻿@model Ticket
+@{
+    ViewData["Title"] = "OpenNewTicket";
+}
+
+<h1>Open New Ticket</h1>
+
+
+<form asp-action="OpenNewTicket" asp-controller="Student" method="post">
+
+    <div>
+        <label>Ticket Name</label>
+        <input asp-for="TicketName" class="form-control" />
+    </div>
+
+    <div>
+        <label> Select Course</label>
+        <select asp-for="CourseID" asp-items="ViewBag.AllCourses" class="form-control">
+        </select>
+    </div>
+
+    <div>
+        <label>Enter Subdivision (optional)</label>
+        <input asp-for="Subdivision" class="form-control" />
+    </div>
+
+    <div>
+        <label>Enter Description (optional)</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <!-- Hidden Fields-->
+    <input asp-for="StudentId" value="@ViewBag.StudentId" hidden="hidden" class="form-control" />
+    <input asp-for="TicketStatus" value="Open" hidden="hidden" class="form-control" /> <!-- Tickets created here will always be initally set to open-->
+    <input asp-for="SessionRating" value="0" hidden="hidden" class="form-control" />
+    <!-- End Hidden Fields-->
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Add Ticket</button>
+
+</form>

@@ -1,0 +1,39 @@
+﻿@model  IEnumerable<Department>
+
+<h4>List of All Departments </h4>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Department Name</th>
+            <th> Department Descrption</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Department eachDepartment in Model)
+        {
+
+            <tr>
+                <td>@eachDepartment.DepartmentName</td>
+                <td>@eachDepartment.DepartmentDescription</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Department" asp-action="EditDepartment" asp-route-deptID="@eachDepartment.DepartmentID">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger" asp-controller="Department" asp-action="ConfirmDeleteDepartment" asp-route-deptID="@eachDepartment.DepartmentID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+
+
+
+
+</table>
+

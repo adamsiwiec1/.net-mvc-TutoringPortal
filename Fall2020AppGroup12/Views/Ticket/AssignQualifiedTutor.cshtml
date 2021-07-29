@@ -1,0 +1,54 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+@{
+    ViewData["Title"] = "This is the guy";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="UnassignTutor" asp-controller="Ticket" method="post">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="form-group">
+        <label>Name: </label>
+        <input asp-for="Tutor.FullName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label> Email: </label>
+        <input asp-for="Tutor.Email" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Phone number:</label>
+        <input asp-for="Tutor.PhoneNumber" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Major:</label>
+        <input asp-for="Tutor.Major.MajorName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Graduation Date:</label>
+        <input asp-for="Tutor.TutorGraduationDate" class="form-control" readonly />
+    </div>
+
+    <h4>Please press 'Unassign' to remove the Tutor from this ticket.  <br /> If you are satisfied with the assignment, please press return home.</h4>
+
+
+    <div>
+        <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="UnassignTutor" asp-route-ticketID="@Model.TicketID">Unassign</a>
+    </div>
+
+</form>
+
+<br />
+
+<div>
+    <div>
+        <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Return Home</a>
+    </div>
+</div>

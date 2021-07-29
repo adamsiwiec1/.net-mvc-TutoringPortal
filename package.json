@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "bootswatch": "^3.4.1",
+    "jquery": "^3.6.0",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-npm-files": "^0.1.3"
+  }
+}

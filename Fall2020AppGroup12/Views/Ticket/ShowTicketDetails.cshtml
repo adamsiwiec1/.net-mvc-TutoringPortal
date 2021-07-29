@@ -1,0 +1,61 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+
+@{
+    ViewData["Title"] = "Ticket #" + Model.TicketID;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form>
+
+    <div class="form-group">
+        <label>Ticket Name</label>
+        <input asp-for="TicketName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Course Code</label>
+        <input asp-for="CourseCode" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Subdivision</label>
+        <input asp-for="Subdivision" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Description</label>
+        <input asp-for="Description" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Student Name</label>
+        <input asp-for="Student.FullName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Student Name</label>
+        <input asp-for="Tutor.FullName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Status</label>
+        <input asp-for="TicketStatus" class="form-control" readonly/>
+    </div>
+
+    <div class="form-group">
+        <label>Date of Ticket Creation</label>
+        <input asp-for="DateCreated" class="form-control" readonly/>
+    </div>
+
+    <input asp-for="Closed" value="False" type="hidden" readonly/>
+
+    <div>
+        <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="ListAllTickets">Go Back</a>(doesnt work for admin - will add to check logged in user later/or do it with cookie)
+    </div>
+
+    <div>
+        <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Return Home</a>
+    </div>
+
+</form>

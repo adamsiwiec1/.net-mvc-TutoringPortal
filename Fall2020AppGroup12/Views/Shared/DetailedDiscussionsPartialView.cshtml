@@ -1,0 +1,46 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Discussion Title</th>
+            <th>Discussion Descrption</th>
+            <th> Date Created</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Discussion eachDiscussion in Model.DiscussionResultList)
+        {
+
+            <tr>
+                <td>@eachDiscussion.DiscussionTitle</td>
+                <td>@eachDiscussion.DiscussionDescription</td>
+                <td>@eachDiscussion.DiscussionDateCreated</td>
+            </tr>
+            if (eachDiscussion.ResponsesInDiscussion != null)
+            {
+
+                List<Response> tempResponseList = eachDiscussion.ResponsesInDiscussion;  //.Where(c => c.DiscussionID == eachDiscussion.DiscussionID).ToList();
+
+                <tr>
+                    <th></th>
+                    <th>Response Title</th>
+                    <th>Response Body</th>
+                </tr>
+                
+                foreach (Response response in tempResponseList)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@response.Title</td>
+                        <td>@response.Body</td>
+                    </tr>
+                }
+            }
+        }
+
+    </tbody>
+
+</table>

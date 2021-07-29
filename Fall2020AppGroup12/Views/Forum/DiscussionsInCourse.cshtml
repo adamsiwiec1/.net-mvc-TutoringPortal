@@ -1,0 +1,52 @@
+﻿@model Fall2020AppGroup12.Models.ViewModels.DiscussionsInCourseViewModel
+
+
+@if (Model.Discussions != null)
+{
+    {
+        ViewData["Title"] = $"Discussions in {Model.Course.CourseCode}";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+
+            <tr>
+                <th>Discussion Title</th>
+                <th>Discussion Descrption</th>
+                <th> Date Created</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Discussion eachDiscussion in Model.Discussions)
+            {
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="Forum" asp-action="AccessDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Discussion Title</a>
+                    </td>
+                    <td>@eachDiscussion.DiscussionDescription</td>
+                    <td>@eachDiscussion.DiscussionDateCreated</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-controller="Forum" asp-action="AccessDiscussion" asp-route-discussionID="@eachDiscussion.DiscussionID">Access Discussion</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+
+    <h3>There are no discussions in @Model.Course.CourseCode</h3>
+
+    <h4>
+        <a class="btn-link" asp-controller="Discussion" asp-action="AddDiscussion" asp-route-courseID="">Add a discussion</a>
+    </h4>
+
+
+}

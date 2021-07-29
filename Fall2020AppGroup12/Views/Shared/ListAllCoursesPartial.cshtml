@@ -1,0 +1,39 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Code</th>
+            <th>Course Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @try
+        {
+            @foreach (Course eachCourse in Model.Courses)
+            {
+
+                <tr>
+                    <td>@eachCourse.CourseID</td>
+                    <td>@eachCourse.CourseCode</td>
+                    <td>@eachCourse.CourseDescription</td>
+                </tr>
+            }
+        }
+        catch
+        {
+            @foreach (Course eachCourse in Model)
+            {
+
+                <tr>
+                    <td>@eachCourse.CourseID</td>
+                    <td>@eachCourse.CourseCode</td>
+                    <td>@eachCourse.CourseDescription</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+
+</table>

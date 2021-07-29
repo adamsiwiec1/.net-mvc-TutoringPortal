@@ -1,0 +1,104 @@
+﻿<table class="table table-bordered table-striped">
+    <thead>
+
+        <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            <th>Date Created</th>
+            <th>Student</th>
+            <th>Tutor </th>
+            <th>Ticket Status</th>
+            <th>Course Code</th>
+            <th>Subdivision</th>
+            <th>Description</th>
+            <th>Session Rating</th>
+            <th>CourseID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @try
+        {
+            @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.AllTickets)
+            {
+                <tr>
+                    <td>@eachTicket.TicketID</td>
+                    <td>@eachTicket.TicketName</td>
+                    <td>@eachTicket.DateCreated</td>
+                    <td>@eachTicket.Student.FullName</td>
+                    @if (eachTicket.Tutor != null)
+                    {
+                        <td>@eachTicket.Tutor.FullName</td>
+                    }
+                    else
+                    {
+                        <td>Not assigned</td>
+                    }
+                    <td>@eachTicket.TicketStatus</td>
+                    <td>@eachTicket.CourseCode</td>
+                    <td>@eachTicket.Subdivision</td>
+                    <td>@eachTicket.Description</td>
+                    <td>@eachTicket.SessionRating</td>
+                    <td>@eachTicket.CourseID</td>
+                </tr>
+            }
+        }
+        catch
+        {
+            @try
+            {
+                @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.Tickets)
+                {
+                    <tr>
+                        <td>@eachTicket.TicketID</td>
+                        <td>@eachTicket.TicketName</td>
+                        <td>@eachTicket.DateCreated</td>
+                        <td>@eachTicket.Student.FullName</td>
+                        @if (eachTicket.Tutor != null)
+                        {
+                            <td>@eachTicket.Tutor.FullName</td>
+                        }
+                        else
+                        {
+                            <td>Not assigned</td>
+                        }
+                        <td>@eachTicket.TicketStatus</td>
+                        <td>@eachTicket.CourseCode</td>
+                        <td>@eachTicket.Subdivision</td>
+                        <td>@eachTicket.Description</td>
+                        <td>@eachTicket.SessionRating</td>
+                        <td>@eachTicket.CourseID</td>
+                    </tr>
+                }
+            }
+            catch
+            {
+
+                @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model)
+                {
+                    <tr>
+                        <td>@eachTicket.TicketID</td>
+                        <td>@eachTicket.TicketName</td>
+                        <td>@eachTicket.DateCreated</td>
+                        <td>@eachTicket.Student.FullName</td>
+                        @if (eachTicket.Tutor != null)
+                        {
+                            <td>@eachTicket.Tutor.FullName</td>
+                        }
+                        else
+                        {
+                            <td>Not assigned</td>
+                        }
+                        <td>@eachTicket.TicketStatus</td>
+                        <td>@eachTicket.CourseCode</td>
+                        <td>@eachTicket.Subdivision</td>
+                        <td>@eachTicket.Description</td>
+                        <td>@eachTicket.SessionRating</td>
+                        <td>@eachTicket.CourseID</td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+
+</table>

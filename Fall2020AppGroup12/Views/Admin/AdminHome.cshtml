@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "AdminHome";
+}
+
+<h1 style="font-style: oblique">Admin Control Center</h1>
+
+<div class="jumbotron">
+
+    <div>
+        <a class="btn btn-outline-primary" asp-area="" asp-controller="Admin" asp-action="ListAllTickets">Admin Ticket Management</a>
+
+    </div>
+
+    <br />
+    <div>
+
+        <a class="btn btn-primary" asp-controller="Ticket" asp-action="TicketHubMain">Click Here for the Ticket Hub </a>
+        <a class="btn btn-primary" asp-controller="Ticket" asp-action="AddTestTickets">Add 20 Random tickets</a>
+        @*<a class="btn-link" asp-controller="Ticket" asp-action="AddTestTickets">Add 20 Random tickets</a>*@
+    </div>
+
+    <br /> <br />
+
+    <div>
+        <partial name="TicketPieChartPartial" />
+
+    </div>
+
+</div>

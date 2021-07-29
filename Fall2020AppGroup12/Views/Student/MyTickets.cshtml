@@ -1,0 +1,268 @@
+﻿@model TicketsViewModel
+@{
+    ViewData["Title"] = "MyTickets";
+}
+
+<h1>My Tickets</h1>
+
+<h2 style="font-style:oblique"> Outstanding Tickets - Need Payment </h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            @*<th>Date Created</th>*@
+            <th>Course Code</th>
+            <th>Tutor </th>
+            <th>Ticket Status</th>
+            <th>Subdivision</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Pay Now</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.ClosedTickets)
+        {
+        <tr>
+            @*@if (eachTicket.TicketPaid == false) need to fix this bool
+            {*@
+
+
+                    <td>@eachTicket.TicketID</td>
+                    <td>@eachTicket.TicketName</td>
+                        @*@if (eachTicket.DateCreated != null)
+                    {
+                        <td>@eachTicket.DateCreated.ToString()</td>
+                    }*@
+                    <td>@eachTicket.CourseCode</td>
+                    @if (eachTicket.Tutor != null)
+                    {
+                        <td>@eachTicket.Tutor.FullName</td>
+                    }
+                    else
+                    {
+                        <td>Not assigned</td>
+                    }
+                    <td>@eachTicket.TicketStatus</td>
+                    <td>@eachTicket.Subdivision</td>
+                    <td>@eachTicket.Description</td>
+                    <td>@eachTicket.TicketCost</td>
+                    <td><a class="btn btn-success" asp-controller="Payment" asp-action="MakeTicketPayment" asp-route-ticketID="@eachTicket.TicketID">Pay</a></td>
+
+
+            @*}*@
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
+
+
+
+
+<!-- OPEN -->
+
+<h2 style="font-style:oblique"> Open Tickets</h2>
+
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            @*<th>Date Created</th>*@
+            <th>Tutor </th>
+            <th>Ticket Status</th>
+            <th>Course Code</th>
+            <th>Subdivision</th>
+            <th>Description</th>
+            <th>Session Rating</th>
+            <th>CourseID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.OpenTickets)
+        {
+            <tr>
+                @if (eachTicket != null)
+                {
+
+                    {
+
+                        <td>@eachTicket.TicketID</td>
+                        <td>@eachTicket.TicketName</td>
+                        @*@if (eachTicket.DateCreated != null)
+                            {
+                                <td>@eachTicket.DateCreated.ToString()</td>
+                            }*@
+
+                        @if (eachTicket.Tutor != null)
+                        {
+                            <td>@eachTicket.Tutor.FullName</td>
+                        }
+                        else
+                        {
+                            <td>Not assigned</td>
+                        }
+                        <td>@eachTicket.TicketStatus</td>
+                        <td>@eachTicket.CourseCode</td>
+                        <td>@eachTicket.Subdivision</td>
+                        <td>@eachTicket.Description</td>
+                        <td>@eachTicket.SessionRating</td>
+                        <td>@eachTicket.CourseID</td>
+
+                    }<!--End of for each-->
+
+                }
+            </tr>
+        }
+        <!--End of for each-->
+    </tbody>
+
+</table>
+
+
+
+<!-- IN PROGRESS -->
+
+
+<h2 style="font-style:oblique"> In Progress</h2>
+
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            <th>Date Created</th>
+            <th>Tutor </th>
+            <th>Ticket Status</th>
+            <th>Course Code</th>
+            <th>Subdivision</th>
+            <th>Description</th>
+            <th>Session Rating</th>
+            <th>CourseID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.InProgressTickets)
+        {
+            <tr>
+                @if (eachTicket != null)
+                {
+
+                    {
+
+                        <td>@eachTicket.TicketID</td>
+                        <td>@eachTicket.TicketName</td>
+                        @*@if (eachTicket.DateCreated != null)
+                            {
+                                <td>@eachTicket.DateCreated.ToString()</td>
+                            }*@
+                        @if (eachTicket.Tutor != null)
+                        {
+                            <td>@eachTicket.Tutor.FullName</td>
+                        }
+                        else
+                        {
+                            <td>Not assigned</td>
+                        }
+                        <td>@eachTicket.TicketStatus</td>
+                        <td>@eachTicket.CourseCode</td>
+                        <td>@eachTicket.Subdivision</td>
+                        <td>@eachTicket.Description</td>
+                        <td>@eachTicket.SessionRating</td>
+                        <td>@eachTicket.CourseID</td>
+
+                    }<!--End of for each-->
+
+                }
+            </tr>
+        }
+        <!--End of for each-->
+    </tbody>
+
+</table>
+
+
+<!-- CLOSED -->
+
+<h2 style="font-style:oblique"> Closed Tickets - Paid Already </h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Ticket ID</th>
+            <th>Ticket Name</th>
+            <th>Date Created</th>
+            <th>Tutor </th>
+            <th>Ticket Status</th>
+            <th>Course Code</th>
+            <th>Subdivision</th>
+            <th>Description</th>
+            <th>Session Rating</th>
+            <th>CourseID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model.ClosedTickets)
+        {
+            <tr>
+                @if (eachTicket.TicketPaid != null && eachTicket.TicketPaid == true)
+                {
+
+                    {
+
+                        <td>@eachTicket.TicketID</td>
+                        <td>@eachTicket.TicketName</td>
+                        @*@if (eachTicket.DateCreated != null)
+                            {
+                                <td>@eachTicket.DateCreated.ToString()</td>
+                            }*@
+                        @if (eachTicket.Tutor != null)
+                        {
+                            <td>@eachTicket.Tutor.FullName</td>
+                        }
+                        else
+                        {
+                            <td>Not assigned</td>
+                        }
+                        <td>@eachTicket.TicketStatus</td>
+                        <td>@eachTicket.CourseCode</td>
+                        <td>@eachTicket.Subdivision</td>
+                        <td>@eachTicket.Description</td>
+                        <td>@eachTicket.SessionRating</td>
+                        <td>@eachTicket.CourseID</td>
+
+                    }<!--End of for each-->
+
+                }
+            </tr>
+        }
+        <!--End of for each-->
+    </tbody>
+
+</table>
+

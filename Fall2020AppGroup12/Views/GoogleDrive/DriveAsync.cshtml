@@ -1,0 +1,31 @@
+﻿@model List<GoogleDriveFile>
+@{
+    ViewData["Title"] = "DriveAsync";
+}
+
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Drive ID</th>
+            <th>Title</th>
+            <th>Created Date</th>
+            <th> Download URL</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (GoogleDriveFile x in Model)
+        {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Title</td>
+            <td>@x.CreatedDate</td>
+            <td>@x.CreatedDate</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

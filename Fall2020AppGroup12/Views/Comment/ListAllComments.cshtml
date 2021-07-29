@@ -1,0 +1,34 @@
+﻿
+@model IEnumerable<Comment>
+
+<h4>List of All Comments </h4>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Comment ID</th>
+            <th>Comment Body</th>
+            <th>Response ID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Comment eachComment in Model)
+        {
+
+        <tr>
+            <td>@eachComment.CommentID</td>
+            <td>@eachComment.Body</td>
+            <td>@eachComment.ResponseID</td>
+            <td>
+                <a class="btn btn-outline-primary" asp-controller="Comment" asp-action="EditComment" asp-route-commentID="@eachComment.CommentID">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-controller="Comment" asp-action="ConfirmDeleteComment" asp-route-commentID="@eachComment.CommentID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

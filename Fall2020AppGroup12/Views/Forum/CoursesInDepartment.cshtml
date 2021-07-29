@@ -1,0 +1,45 @@
+﻿@model Fall2020AppGroup12.Models.ViewModels.CoursesInDepartmentViewModel
+
+<h4>List of All Courses </h4>
+
+@if(Model.Courses != null)
+{
+
+    {
+        ViewData["Title"] = $"Discussions in {Model.Department.DepartmentName}";
+    }
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Course Code</th>
+            <th>Course Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Course eachCourse in Model.Courses)
+        {
+            <tr>
+                <td>@eachCourse.CourseCode</td>
+                <td>@eachCourse.CourseDescription</td>
+                <td>
+                    <a class="btn btn-outline-secondary" asp-controller="Forum" asp-action="DiscussionsInCourse" asp-route-courseID="@eachCourse.CourseID">Discussions</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+
+<h3>There are no discussions in @Model.Department.DepartmentName</h3>
+
+<h4>
+    <a class="btn-link" asp-controller="Discussion" asp-action="AddDiscussion" asp-route-courseID="">Add a discussion</a>
+</h4>
+
+
+}

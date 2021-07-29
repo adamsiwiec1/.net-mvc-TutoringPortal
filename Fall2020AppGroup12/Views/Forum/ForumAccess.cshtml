@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Fall2020AppGroup12.Models.DepartmentModel.Department>
+
+@{
+    ViewData["Title"] = "Forum Access";
+}
+
+
+
+<!-- ###### Latest Attempt From Adam ########-->
+@*<head>
+        <link rel="stylesheet" href="~/css/forum.css" />
+    </head>*@
+
+
+<body>
+
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+
+                <tr>
+                    <th>Department Name</th>
+                    <th> Department Descrption</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (Department eachDepartment in Model)
+                {
+
+                <tr>
+                    <td>
+                        <a class="nav-link" asp-controller="Forum" asp-action="CoursesInDepartment" asp-route-departmentID="@eachDepartment.DepartmentID">@eachDepartment.DepartmentName</a>
+                    </td>
+                    <td>
+                        @eachDepartment.DepartmentDescription
+                        @*<a class="btn btn-outline-danger" asp-controller="Forum" asp-action="CoursesInDepartment" asp-route-deptID="@eachDepartment.DepartmentID">@eachDepartment.DepartmentDescription</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--###################### IGNORE ANYTHING BELOW THIS #########################IGNORE ANYTHING BELOW THIS ###################### IGNORE ANYTHING BELOW THIS #########################- ###################### IGNORE ANYTHING BELOW THIS ######################### ###################### IGNORE ANYTHING BELOW THIS #########################--!>
+<!-- ###### FROM SCRATCH ########-->
+@*<h2>Department</h2>
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+
+            <tr>
+                <th>Department Name</th>
+                <th> Department Descrption</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Department eachDepartment in Model)
+            {
+                <tr>
+                    <td>@eachDepartment.DepartmentName</td>
+                    <td>@eachDepartment.DepartmentDescription</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" asp-controller="Forum" asp-action="CoursesInDepartment" asp-route-departmentID="@eachDepartment.DepartmentID">Courses</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-secondary" asp-controller="Forum" asp-action="DiscussionsInDepartment" asp-route-departmentID="@eachDepartment.DepartmentID">Discussions</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+
+
+<!-- ###### Tutorial  2 ########-->
+<!--<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+</head>
+
+<!--<div class="headerFixedBar"
+     <div class="row">
+         <div class="col-lg-12">
+             <div class="pullLeft" style="margin-top:5px">-->
+<!--@*<a class="headerLogoText" href="NOT-INDEX-PHP"*@-->
+<!--ForumHome
+             </div>
+
+            <div class="pullRight">
+                <a class="btn btn-primary themeButton">Logout</a>
+            </div>
+
+         </div>
+     </div>
+</div>-->
+<!--<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 paginationBar forumModule">
+                <a href="#">Home</a>
+            </div>
+        </div>
+
+
+    <div class="row forumModule">
+
+        <div class="col-lg-8">
+        </div>
+
+        <div class="col-lg-4">
+        </div>
+
+    </div>
+    </div>
+
+    <style>
+        .themeButton{
+            background-color:#562e72;
+            color:white;
+            border-color:black;
+            border-width:thin;
+            font-weight:500;
+        }
+
+
+
+    </style>
+
+
+</body>
+
+</html>-->

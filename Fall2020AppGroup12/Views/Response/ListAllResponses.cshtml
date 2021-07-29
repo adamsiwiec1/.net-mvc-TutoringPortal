@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Response>
+
+<h4>List of All Responses </h4>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Response ID</th>
+            <th>Response Title</th>
+            <th>Response Body</th>
+            <th>Discussion ID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Response eachResponse in Model)
+        {
+
+        <tr>
+            <td>@eachResponse.ResponseID</td>
+            <td>@eachResponse.Title</td>
+            <td>@eachResponse.Body</td>
+            <td>@eachResponse.DiscussionID</td>
+            <td>
+                <a class="btn btn-outline-primary" asp-controller="Response" asp-action="EditResponse" asp-route-responseID="@eachResponse.ResponseID">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-controller="Response" asp-action="ConfirmDeleteResponse" asp-route-responseID="@eachResponse.ResponseID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>

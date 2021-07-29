@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Fall2020AppGroup12.Models.TicketModel.Ticket>
+
+@{
+    ViewData["Title"] = "Ticket Admin Board";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+
+        <tr>
+            <th>Ticket Name</th>
+            <th>Course Code</th>
+            <th>Tutor </th>
+            <th>Student</th>
+            <th>Date Created</th>
+            <th>Status</th>
+            <th>Closed</th>
+            <th>Tutor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Fall2020AppGroup12.Models.TicketModel.Ticket eachTicket in Model)
+        {
+        <tr>
+            <td>
+                <a class="btn-link" asp-controller="Ticket" asp-action="ShowTicketDetails" asp-route-ticketID="@eachTicket.TicketID">@eachTicket.TicketName</a>
+            </td>
+            <td>@eachTicket.CourseCode</td>
+            @if (eachTicket.Tutor != null)
+            {
+                <td>@eachTicket.Tutor.FullName</td>
+            }
+            else
+            {
+                <td>Not assigned</td>
+            }
+            <td>@eachTicket.Student.FullName</td>
+            <td>@eachTicket.DateCreated</td>
+            <td>@eachTicket.TicketStatus</td>
+            <td>@eachTicket.Closed</td>
+            @if (eachTicket.Tutor == null)
+            {
+                <td>
+                    <a class="btn btn-outline-secondary" asp-controller="Ticket" asp-action="AssignQualifiedTutor" asp-route-ticketID="@eachTicket.TicketID">Assign</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a class="btn btn-outline-secondary" asp-controller="Ticket" asp-action="UnassignTutor" asp-route-ticketID="@eachTicket.TicketID">Unassign</a>
+                </td>
+            }
+            <td>
+                <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="EditTicket" asp-route-ticketID="@eachTicket.TicketID">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-controller="Ticket" asp-action="ConfirmDeleteTicket" asp-route-ticketID="@eachTicket.TicketID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

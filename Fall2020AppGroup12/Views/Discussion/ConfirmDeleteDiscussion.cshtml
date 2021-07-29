@@ -1,0 +1,34 @@
+﻿@model Discussion
+
+@{
+    ViewData["Title"] = "Are you sure you want to delete this discussion?";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="DeleteDiscussion" asp-controller="Discussion">
+
+    <h2>@ViewData["Title"]</h2>
+
+    @Html.HiddenFor(m => m.DiscussionID)
+
+    <div class="form-group">
+        <label>Course Description</label>
+        <input asp-for="DiscussionTitle" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Course Description</label>
+        <input asp-for="DiscussionDescription" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Course Description</label>
+        <input asp-for="DiscussionDateCreated" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Course Description</label>
+        <input asp-for="CourseID" class="form-control" readonly />
+    </div>
+    <br />
+    Click 'Delete Discussion' if you are sure.
+    <button type="submit" class="btn btn-primary">Delete Discussion</button>
+</form>

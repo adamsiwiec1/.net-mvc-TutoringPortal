@@ -1,0 +1,72 @@
+﻿@model Student
+
+@{
+
+    ViewData["Title"] = "Add Student";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="AddStudent" asp-controller="Student">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>New Password</label>
+        <input asp-for="PasswordHash" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Major</label>
+        <select asp-for="MajorID" asp-items="ViewBag.AllMajors" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Student Biography</label>
+        <input asp-for="StudentBiography" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Expected Graduation Date</label>
+        <select asp-for="StudentGraduationDate" class="form-control">
+            <option value="May 2021">May 2021</option>
+            <option value="December 2021">December 2021</option>
+            <option value="May 2022">May 2022</option>
+            <option value="December 2022">December 2022</option>
+            <option value="May 2023">May 2023</option>
+            <option value="December 2023">December 2023</option>
+            <option value="May 2024">May 2024</option>
+            <option value="December 2024">December 2024</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Student</button>
+</form>

@@ -1,0 +1,29 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+
+@{
+    ViewData["Title"] = "Thank you for your request!!";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <hd>Request Info:</hd>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ticket: @Model.TicketName</td>
+                <td>Course: @Model.CourseCode</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <br />
+    <br />
+    <p> We have not actually sent out the request.. need to add that feature</p>
+
+</div>

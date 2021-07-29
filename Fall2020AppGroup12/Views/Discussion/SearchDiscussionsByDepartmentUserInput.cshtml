@@ -1,0 +1,68 @@
+﻿@model Fall2020AppGroup12.Models.ViewModels.SearchForDiscussionsInDepartmentViewModel
+@{
+    ViewData["Title"] = "SearchDiscussionsByDepartmentUserInput";
+}
+
+<h4>SearchDiscussionsByCourseUserInput</h4>
+<h6>All selections are optional</h6>
+
+<form asp-controller="Discussion" asp-action="SearchDiscussionsByDepartmentUserInput" method="post">
+
+    <input asp-for="UserFirstVisit" value="No" type="hidden" />
+
+    <div class="form-group">
+        <label>Choose Department</label>
+        @* The view model comes into play in the following line/step *@
+        <select asp-for="DepartmentID" asp-items="ViewBag.AllDepartments" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search For Discussions</button>
+
+
+</form>
+
+
+
+@if (Model.ResultList != null)
+{
+    @if (Model.ResultList.Any())
+    {
+        <h1>Search Results</h1>
+        <table class="table table-bordered table-striped">
+
+            <thead>
+
+                <tr>
+                    <th>Discussion Title</th>
+                    <th>Discussion Descrption</th>
+                    <th> Date Created</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (Discussion eachDiscussion in Model.ResultList)
+                {
+
+                    <tr>
+                        <td>@eachDiscussion.DiscussionTitle</td>
+                        <td>@eachDiscussion.DiscussionDescription</td>
+                        <td>@eachDiscussion.DiscussionDateCreated</td>
+                    </tr>
+                }
+
+            </tbody>
+
+
+
+
+
+        </table>
+    }
+    else
+    {
+        <h4> No discussions meet your search criteria.</h4>
+    }
+}

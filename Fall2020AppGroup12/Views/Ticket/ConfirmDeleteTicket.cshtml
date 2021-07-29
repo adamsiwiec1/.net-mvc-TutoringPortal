@@ -1,0 +1,47 @@
+﻿@model Fall2020AppGroup12.Models.TicketModel.Ticket
+@{
+    ViewData["Title"] = "Are you sure you want to delete this ticket?";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="DeleteTicket" asp-controller="Ticket">
+
+    <h2>@ViewData["Title"]</h2>
+
+    @Html.HiddenFor(m => m.TicketID)
+
+    <div class="form-group">
+        <label>Ticket Name</label>
+        <input asp-for="TicketName" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Ticket Status</label>
+        <input asp-for="TicketStatus" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Student ID</label>
+        <input asp-for="StudentId" class="form-control" readonly />
+    </div>
+
+    @if (Model.TutorId != null)
+    {
+        <div class="form-group">
+            <label>Tutor ID</label>
+            <input asp-for="TutorId" class="form-control" readonly />
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label>Tutor ID</label>
+            <input value="No Tutor Assigned" class="form-control" readonly />
+        </div>
+    }
+
+    <br />
+    Click 'Delete Ticket' if you are sure.
+    <button type="submit" class="btn btn-primary">Delete Ticket</button>
+</form>

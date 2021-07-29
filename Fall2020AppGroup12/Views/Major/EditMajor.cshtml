@@ -1,0 +1,32 @@
+﻿@model Major
+@{
+    ViewData["Title"] = "EditMajor";
+}
+
+<h4>Edit Major</h4>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="EditMajor" asp-controller="Major" method="post">
+    @Html.HiddenFor(m => m.MajorID)
+
+    <div class="form-group">
+        <label>Major Name</label>
+        <input asp-for="MajorName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Major Acronym</label>
+        <input asp-for="MajorAckronym" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label>Department</label>
+        <select asp-for="DepartmentID" as-items="viewBag.AllDepartments" class="form-control">
+            <option value="">None</option>                
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit Major</button>
+
+</form>

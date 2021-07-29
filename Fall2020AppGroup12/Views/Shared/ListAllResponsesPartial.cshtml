@@ -1,0 +1,26 @@
+﻿<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Response ID</th>
+            <th>Response Title</th>
+            <th>Response Body</th>
+            <th>Discussion ID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Response eachResponse in Model.Responses)
+        {
+
+            <tr>
+                <td>@eachResponse.ResponseID</td>
+                <td>@eachResponse.Title</td>
+                <td>@eachResponse.Body</td>
+                <td>@eachResponse.DiscussionID</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

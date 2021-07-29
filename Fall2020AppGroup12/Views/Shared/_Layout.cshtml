@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fall2020AppGroup12</title>
+
+    <!-- https://bootswatch.com/ -->
+    <!-- DARK GREY THEME-->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/slate.css" />*@
+    <!--#################-->
+    <!-- UBUNTU THEME-->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/ubuntu.css" />*@
+    <!--#################-->
+    <!-- NOTEBOOK/PENCIL THEME-->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/sketchy/sketchy.scss" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/sketchy/_variables.scss" />*@
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/sketchy/sketchy.css" />*@
+    <!--#################-->
+    <!-- SANDSTONE THEME-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/sandstone.css" />
+    <!--#################-->
+    <!-- LUX THEME-->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/lux.css" />*@
+    <!--#################-->
+    <!-- Cyborg THEME-->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/Cyborg.css" />*@
+    <!--#################-->
+    <!-- BUILT IN BASIC CSS-->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!--#################-->
+
+</head>
+<body>
+    @*navbar-light bg-white*@
+<header>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-primary" aria-expanded="false" style="margin: auto">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Tutoring
+                                                                                        Portal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-lg-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    @*<li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>*@
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.IsInRole("Student") || User.IsInRole("Administrator") || User.IsInRole("Tutor"))
+                        {
+                            <!-- Shared links-->
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Forum" asp-action="ForumAccess">Forum</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="TicketHubMain">TicketHub</a>
+                            </li>
+                            @*<li class="nav-item btn">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="GoogleDrive" asp-action="GoogleDriveIndex">G Drive Count</a>
+                    </li>
+                    <li class="nav-item btn">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="GoogleDrive" asp-action="Drive Async">G Drive</a>
+                    </li>*@
+
+
+                        }
+                        if (User.IsInRole("Student"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Student" asp-action="MyTickets">My Tickets</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Student" asp-action="OpenNewTicket">New Ticket</a>
+                            </li>
+
+                        }
+                        if (User.IsInRole("Tutor"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Tutor" asp-action="TutorTickets">My Tickets</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="TicketBoard">TicketBoard</a>
+                            </li>
+
+
+                        }
+                        if (User.IsInRole("Administrator"))
+                        {
+
+                            <!-- List/Edit/Delete Database-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">List All</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllDepartments">Departments</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllCourses">Courses</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllDiscussions">Discussions</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllTickets">Tickets</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllTutors">Tutors</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllStudents">Students</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ListAllMajors">Majors</a>
+                                    <div class="dropdown-divider"></div>
+
+                                    <!-- Dividers drop down - Users and Database show below-->
+                                    <a class="dropdown-item" asp-area="" asp-controller="Misc" asp-action="ListAllUsers">Users</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Misc" asp-action="ListDatabase">Database</a>
+                                </div>
+                            </li>
+
+                            <!-- Add to Database-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Add</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Department" asp-action="AddDepartment">Add Department</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="AddCourse">Add Course</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Discussion" asp-action="AddDiscussion">Add Discussion</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Response" asp-action="AddResponse">Add Response</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Comment" asp-action="AddComment">Add Comment</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Ticket" asp-action="AddTicket">Add Ticket</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Tutor" asp-action="AddTutor">Add Tutor</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="AddStudent">Add Student</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Major" asp-action="AddMajor">Add Major</a>
+                                </div>
+                            </li>
+
+                            <!-- Complex Admin Functions-->
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminHome">Admin Control Center</a>
+                            </li>
+
+                        }
+                    }
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <br />
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Fall2020AppGroup12 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@*<script src="~/Darkmode.js/darkmode-js.js" asp-append-version="true"></script>*@
+@RenderSection("Scripts", required: false)
+</body>
+</html>

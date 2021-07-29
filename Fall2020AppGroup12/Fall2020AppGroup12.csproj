@@ -1,0 +1,227 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Fall2020AppGroup12-A8E7EF26-1DD4-4D00-899D-394E11236D54</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201110222601_Reset.cs" />
+    <Compile Remove="Migrations\20201110222601_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201110223130_Initial.cs" />
+    <Compile Remove="Migrations\20201110223130_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110223248_Initial.cs" />
+    <Compile Remove="Migrations\20201110223248_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110223357_Initial.cs" />
+    <Compile Remove="Migrations\20201110223357_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110223635_Initial.cs" />
+    <Compile Remove="Migrations\20201110223635_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110223712_InitialPart2.cs" />
+    <Compile Remove="Migrations\20201110223712_InitialPart2.Designer.cs" />
+    <Compile Remove="Migrations\20201110224544_Initial.cs" />
+    <Compile Remove="Migrations\20201110224544_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110224929_InitialPart2.cs" />
+    <Compile Remove="Migrations\20201110224929_InitialPart2.Designer.cs" />
+    <Compile Remove="Migrations\20201110225153_InitialPart2.cs" />
+    <Compile Remove="Migrations\20201110225153_InitialPart2.Designer.cs" />
+    <Compile Remove="Migrations\20201110225256_InitialPart3.cs" />
+    <Compile Remove="Migrations\20201110225256_InitialPart3.Designer.cs" />
+    <Compile Remove="Migrations\20201110225501_Initial.cs" />
+    <Compile Remove="Migrations\20201110225501_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110225829_Initial.cs" />
+    <Compile Remove="Migrations\20201110225829_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110230350_Initial.cs" />
+    <Compile Remove="Migrations\20201110230350_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110230433_InitialPart2.cs" />
+    <Compile Remove="Migrations\20201110230433_InitialPart2.Designer.cs" />
+    <Compile Remove="Migrations\20201110233930_Initial.cs" />
+    <Compile Remove="Migrations\20201110233930_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110234429_test.cs" />
+    <Compile Remove="Migrations\20201110234429_test.Designer.cs" />
+    <Compile Remove="Migrations\20201112183503_InitialPart2.cs" />
+    <Compile Remove="Migrations\20201112183503_InitialPart2.Designer.cs" />
+    <Compile Remove="Migrations\20201112190046_Initial2.cs" />
+    <Compile Remove="Migrations\20201112190046_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20201112191034_Initial2.cs" />
+    <Compile Remove="Migrations\20201112191034_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20201112191139_Initial2.cs" />
+    <Compile Remove="Migrations\20201112191139_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20201112191824_Initial3.cs" />
+    <Compile Remove="Migrations\20201112191824_Initial3.Designer.cs" />
+    <Compile Remove="Migrations\20201112194030_Initial2.cs" />
+    <Compile Remove="Migrations\20201112194030_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20201112194621_Initial.cs" />
+    <Compile Remove="Migrations\20201112194621_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201112195117_Initial.cs" />
+    <Compile Remove="Migrations\20201112195117_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201112195254_Initial.cs" />
+    <Compile Remove="Migrations\20201112195254_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201112224248_Initial.cs" />
+    <Compile Remove="Migrations\20201112224248_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201113005019_Initial.cs" />
+    <Compile Remove="Migrations\20201113005019_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201113044028_Reset.cs" />
+    <Compile Remove="Migrations\20201113044028_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113044540_Reset.cs" />
+    <Compile Remove="Migrations\20201113044540_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113044727_Reset.cs" />
+    <Compile Remove="Migrations\20201113044727_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113044809_Reset.cs" />
+    <Compile Remove="Migrations\20201113044809_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113044855_Reset.cs" />
+    <Compile Remove="Migrations\20201113044855_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113045146_Reset.cs" />
+    <Compile Remove="Migrations\20201113045146_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113045354_Reset.cs" />
+    <Compile Remove="Migrations\20201113045354_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113045423_Reset.cs" />
+    <Compile Remove="Migrations\20201113045423_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113045639_Reset.cs" />
+    <Compile Remove="Migrations\20201113045639_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113050345_Reset.cs" />
+    <Compile Remove="Migrations\20201113050345_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113050545_Reset.cs" />
+    <Compile Remove="Migrations\20201113050545_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113051314_Reset.cs" />
+    <Compile Remove="Migrations\20201113051314_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113052300_Reset.cs" />
+    <Compile Remove="Migrations\20201113052300_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113052400_Reset.cs" />
+    <Compile Remove="Migrations\20201113052400_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113052505_Reset.cs" />
+    <Compile Remove="Migrations\20201113052505_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113053207_Reset.cs" />
+    <Compile Remove="Migrations\20201113053207_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201113054557_Reset.cs" />
+    <Compile Remove="Migrations\20201113054557_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20201117173923_AddedMajorTicketAndTicketDetails.cs" />
+    <Compile Remove="Migrations\20201117173923_AddedMajorTicketAndTicketDetails.Designer.cs" />
+    <Compile Remove="Migrations\20201117174245_AddedAllTablesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117174245_AddedAllTablesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117174310_AddedAllTablesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117174310_AddedAllTablesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117174442_AddedAllTablesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117174442_AddedAllTablesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117175351_AddedAllTablesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117175351_AddedAllTablesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117175904_AddedAllTablesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117175904_AddedAllTablesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117224247_AddedAllClassesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117224247_AddedAllClassesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117225011_AddedAllClassesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117225011_AddedAllClassesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201117225624_AddedAllClassesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201117225624_AddedAllClassesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201119190307_AddedAllClassesAndObjectOrientedConnections.cs" />
+    <Compile Remove="Migrations\20201119190307_AddedAllClassesAndObjectOrientedConnections.Designer.cs" />
+    <Compile Remove="Migrations\20201209044932_RemovedAdministator.cs" />
+    <Compile Remove="Migrations\20201209044932_RemovedAdministator.Designer.cs" />
+    <Compile Remove="Migrations\20210223022239_NewClassDiagram.cs" />
+    <Compile Remove="Migrations\20210223022239_NewClassDiagram.Designer.cs" />
+    <Compile Remove="Migrations\20210223023305_NewClassDiagram.cs" />
+    <Compile Remove="Migrations\20210223023305_NewClassDiagram.Designer.cs" />
+    <Compile Remove="Migrations\20210225010005_UpdateDatabase.cs" />
+    <Compile Remove="Migrations\20210225010005_UpdateDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20210225010616_Reset.cs" />
+    <Compile Remove="Migrations\20210225010616_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20210306172617_AddedFullName.cs" />
+    <Compile Remove="Migrations\20210306172617_AddedFullName.Designer.cs" />
+    <Compile Remove="Migrations\20210307082845_AddedTicketName.cs" />
+    <Compile Remove="Migrations\20210307082845_AddedTicketName.Designer.cs" />
+    <Compile Remove="Migrations\20210307083557_RemovedTicketDetailTitle.cs" />
+    <Compile Remove="Migrations\20210307083557_RemovedTicketDetailTitle.Designer.cs" />
+    <Compile Remove="Migrations\20210307181613_UpdatedTicktDetail.cs" />
+    <Compile Remove="Migrations\20210307181613_UpdatedTicktDetail.Designer.cs" />
+    <Compile Remove="Migrations\20210308215947_RemovedTicketDetail.cs" />
+    <Compile Remove="Migrations\20210308215947_RemovedTicketDetail.Designer.cs" />
+    <Compile Remove="Migrations\20210313052206_UpdatedLists.cs" />
+    <Compile Remove="Migrations\20210313052206_UpdatedLists.Designer.cs" />
+    <Compile Remove="Migrations\20210326170820_Update2.cs" />
+    <Compile Remove="Migrations\20210326170820_Update2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Remove="C:\Users\adams\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.6.0" />
+    <PackageReference Include="Google.Apis.Auth.Mvc" Version="1.51.0" />
+    <PackageReference Include="Google.Apis.Drive.v2" Version="1.51.0.2265" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.51.0.2265" />
+    <PackageReference Include="Google.Apis.Plus.v1" Version="1.49.0.1627" />
+    <PackageReference Include="GSF.Core" Version="2.3.302" />
+    <PackageReference Include="MailKit" Version="2.11.1" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MimeKit" Version="2.11.0" />
+    <PackageReference Include="RequireJS" Version="2.3.6" />
+    <PackageReference Include="Square" Version="9.1.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Services\gDrive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
